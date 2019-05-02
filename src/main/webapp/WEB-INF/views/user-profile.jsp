@@ -4,7 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <html>
 <head>
-    <title>Home</title>
+    <title>${user.firstName} ${user.lastName}'s profile</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
@@ -39,25 +39,29 @@
     <br>
 
     <div class="container">
-            <h2>Latest Tweets:</h2>
-            <table class="table">
-                <thead>
+        <h2>${user.firstName} ${user.lastName}'s Tweets</h2>
+
+        <h2>Latest Tweets:</h2>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Text</th>
+                <th scope="col">Created</th>
+                <th scope="col">User</th>
+            </tr>
+            </thead>
+            <c:forEach items="${usersTweets}" var="usersTweet">
                 <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Text</th>
-                    <th scope="col">Created</th>
-                    <th scope="col">User</th>
+                    <td>${usersTweet.id}</td>
+                    <td>${usersTweet.text}</td>
+                    <td>${usersTweet.created}</td>
+                    <td>${usersTweet.user.firstName} ${usersTweet.user.lastName}</td>
                 </tr>
-                </thead>
-                <c:forEach items="${latestTweets}" var="latestTweet">
-                    <tr>
-                        <td>${latestTweet.id}</td>
-                        <td>${latestTweet.text}</td>
-                        <td>${latestTweet.created}</td>
-                        <td> <a href="<c:url value="/user/${latestTweet.user.id}"/>">${latestTweet.user.firstName} ${latestTweet.user.lastName}</a></td>
-                    </tr>
-                </c:forEach>
-            </table>
+            </c:forEach>
+        </table>
+
+        <a href="<c:url value=" "/>">Send message</a><br>
     </div>
 </body>
 </html>

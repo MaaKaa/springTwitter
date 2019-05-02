@@ -24,40 +24,51 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="login">Login</a>
+                        <a class="nav-link" href="#">My Profile</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="register">Register</a>
+                        <a class="nav-link" href="#">Logout</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-
     <br>
     <br>
     <br>
-
     <div class="container">
-            <h2>Latest Tweets:</h2>
-            <table class="table">
-                <thead>
+        <h2>Hi ${user.firstName}!</h2>
+        <h2>Post Tweet:</h2>
+        <form:form method="post" modelAttribute="userTweet">
+            <form:input type="hidden" name="id" path="id"/>
+            <form:input type="hidden" name="${user.id}" path="user.id"/>
+
+            Text:<br>
+            <form:textarea path="text"/><br>
+            <form:errors path="text" cssClass="text-danger"/><br>
+
+            <input type="submit" value="Save"><br>
+        </form:form>
+
+        <h2>Your Tweets:</h2>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Text</th>
+                <th scope="col">Created</th>
+                <th scope="col">User</th>
+            </tr>
+            </thead>
+            <c:forEach items="${tweetsByUser}" var="tweetByUser">
                 <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Text</th>
-                    <th scope="col">Created</th>
-                    <th scope="col">User</th>
+                    <td>${tweetByUser.id}</td>
+                    <td>${tweetByUser.text}</td>
+                    <td>${tweetByUser.created}</td>
+                    <td>${tweetByUser.user.firstName} ${tweetByUser.user.lastName}</td>
                 </tr>
-                </thead>
-                <c:forEach items="${latestTweets}" var="latestTweet">
-                    <tr>
-                        <td>${latestTweet.id}</td>
-                        <td>${latestTweet.text}</td>
-                        <td>${latestTweet.created}</td>
-                        <td> <a href="<c:url value="/user/${latestTweet.user.id}"/>">${latestTweet.user.firstName} ${latestTweet.user.lastName}</a></td>
-                    </tr>
-                </c:forEach>
-            </table>
+            </c:forEach>
+        </table>
     </div>
 </body>
 </html>

@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: maakaa
-  Date: 28.04.19
-  Time: 14:59
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
@@ -21,15 +14,15 @@
 
         First Name:
         <form:input path="firstName"/><br>
-        <form:errors path="firstName" cssClass="error" /><br>
+        <form:errors path="firstName" cssClass="text-danger" /><br>
 
         Last Name:
         <form:input path="lastName"/><br>
-        <form:errors path="lastName" cssClass="error" /><br>
+        <form:errors path="lastName" cssClass="text-danger" /><br>
 
         Email:
         <form:input path="email"/><br>
-        <form:errors path="email" cssClass="error" /><br>
+        <form:errors path="email" cssClass="text-danger" /><br>
 
         Password:
         <form:password path="password"/><br>
@@ -37,6 +30,8 @@
 
         <input type="submit" value="save"><br>
     </form:form>
+
+    <a href="<c:url value="login"/>">Already have an account? Login!</a><br>
 </div>
 </body>
 </html>

@@ -5,7 +5,6 @@ import pl.marzenakaa.app.Tweet.Tweet;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -30,8 +29,8 @@ public class User {
     @Email
     private String email;
 
-    @OneToMany(mappedBy = "user")
-    private List<Tweet> tweets = new ArrayList<>();
+    @OneToMany(mappedBy = "user", cascade = {CascadeType.ALL})
+    private List<Tweet> tweets;
 
     public User() {
     }
@@ -46,6 +45,10 @@ public class User {
 
     public String getLastName() {
         return lastName;
+    }
+
+    public String getFullName(){
+        return firstName + " " + lastName;
     }
 
     public String getPassword() {
@@ -82,5 +85,10 @@ public class User {
 
     public void setTweets(List<Tweet> tweets) {
         this.tweets = tweets;
+    }
+
+    @Override
+    public String toString() {
+        return firstName + " " + lastName;
     }
 }
