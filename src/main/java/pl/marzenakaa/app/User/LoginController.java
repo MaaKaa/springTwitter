@@ -59,4 +59,26 @@ public class LoginController {
         tweetRepository.save(tweet);
         return "redirect: ";
     }
+
+    /*@GetMapping("/logged/{id}/edit/{id}")
+    public String showEditTweetForm(@PathVariable Long id, Model model) {
+        Tweet tweet = tweetRepository.findOne(id);
+        model.addAttribute("tweet", tweet);
+        return "home-logged";
+    }
+
+    @PostMapping("/logged/{id}/edit/{id}")
+    public String processEditTweetForm(@ModelAttribute("tweet") @Valid Tweet tweet, BindingResult result) {
+        if (result.hasErrors()) {
+            return "home-logged";
+        }
+        tweetRepository.save(tweet);
+        return "redirect: ";
+    }
+
+    @GetMapping("/logged/{id}/delete/{id}")
+    public String processDeleteTweet(@PathVariable Long id) {
+        tweetRepository.delete(id);
+        return "redirect: ";
+    }*/
 }

@@ -1,4 +1,4 @@
-Simple Twitter-like app.
+Simple Twitter-like app. (IN PROGRESS!)
 
 HOW IT WORKS?
 
@@ -16,4 +16,7 @@ USED TOOLS/FRAMEWORKS:
     • Java: Spring MVC + Spring Data
     • Layout: HTML
     • Styling: CSS/Bootstrap 
-    • IntelliJ Ultimate Edition, Workbench 
+    • IntelliJ Ultimate Edition, Workbench
+    
+    
+   

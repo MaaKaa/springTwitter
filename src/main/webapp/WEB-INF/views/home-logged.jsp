@@ -58,6 +58,7 @@
                 <th scope="col">Text</th>
                 <th scope="col">Created</th>
                 <th scope="col">User</th>
+                <th scope="col">Actions</th>
             </tr>
             </thead>
             <c:forEach items="${tweetsByUser}" var="tweetByUser">
@@ -66,6 +67,7 @@
                     <td>${tweetByUser.text}</td>
                     <td>${tweetByUser.created}</td>
                     <td>${tweetByUser.user.firstName} ${tweetByUser.user.lastName}</td>
+                    <td><a href="${user.id}/edit/${tweetByUser.id}">Edit</a> <a href="${user.id}/delete/${tweetByUser.id}">Delete</a></td>
                 </tr>
             </c:forEach>
         </table>
