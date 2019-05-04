@@ -1,4 +1,4 @@
-package pl.marzenakaa.app.User;
+package pl.marzenakaa.app;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -8,6 +8,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import pl.marzenakaa.app.User.User;
 import pl.marzenakaa.repository.TweetRepository;
 import pl.marzenakaa.repository.UserRepository;
 

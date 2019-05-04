@@ -4,12 +4,10 @@ import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.marzenakaa.repository.TweetRepository;
 import pl.marzenakaa.repository.UserRepository;
 
-import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -29,23 +27,4 @@ public class TweetController {
         model.addAttribute("tweets", tweets);
         return "tweets-list";
     }
-
-    /*@GetMapping("/add")
-    public String showAddTweetForm(Model model){
-        model.addAttribute("tweet", new Tweet());
-        return "add-tweet-form";
-    }
-
-    @PostMapping("/add")
-    public String processAddTweetForm(@ModelAttribute("tweet") @Valid Tweet tweet, BindingResult result){
-        if (result.hasErrors()) {
-            return "add-tweet-form";
-        }
-        tweetRepository.save(tweet);
-        return "redirect:all";
-    }*/
-
-
-
-
 }
